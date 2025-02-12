@@ -1,25 +1,39 @@
 import {
-  int,
+  bigint,
   text,
   index,
   singlestoreTableCreator,
-  singlestoreTable,
-  bigint,
-  timestamp,
+  int,
 } from "drizzle-orm/singlestore-core"
 
-/**
- * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
- * database instance for multiple projects.
- *
- * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
- */
-// export const createTable = singlestoreTableCreator(
-//   (name) => `t3-drv_${name}`,
-// )
+// files table
+export const createTable = singlestoreTableCreator(
+  (name) => `t3-drv_${name}`,
+)
 
-export const users = singlestoreTable("users_table", {
-  id: int("id").primaryKey().autoincrement(),
-  name: text("name"),
-  age: int("age"),
-})
+export const files = createTable(
+  "files_table",
+  {
+    id: bigint({ mode: "number", unsigned: true }).primaryKey().autoincrement(),
+    name: text("name").notNull(),
+    size: int("size").notNull(),
+    url: text("url").notNull(),
+    parent: bigint("parent", { mode: "number", unsigned: true }).notNull(),
+  },
+  (tempTable) => {
+    return [index("parent_index").on(tempTable.parent)]
+  },
+)
+
+// folders table
+export const folders = createTable(
+  "folders_table",
+  {
+    id: bigint({ mode: "number", unsigned: true }).primaryKey().autoincrement(),
+    name: text("name").notNull(),
+    parent: bigint("parent", { mode: "number", unsigned: true }),
+  },
+  (tempTable) => {
+    return [index("parent_index").on(tempTable.parent)]
+  },
+)

@@ -5,7 +5,7 @@ import { env } from "~/env"
 export default defineConfig({
   schema: "./src/server/db/schema.ts",
   dialect: "singlestore",
-  tablesFilter: ["T3-DRV-DB_*"],
+  tablesFilter: ["t3-drv_*"],
   dbCredentials: {
     host: env.SINGLESTORE_HOST,
     port: parseInt(env.SINGLESTORE_PORT),
