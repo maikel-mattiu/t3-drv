@@ -11,7 +11,9 @@
 
 Just finished setting up the database. Next Steps:
 
-- [ ] Update schema to show files and folders
-- [ ] Manually insert examples
-- [ ] Render them in the UI
-- [ ] Push and make it all work
+- [x] Update schema to show files and folders
+- [x] Manually insert examples
+- [x] Render them in the UI
+- [x] Push and make it all work
+
+Finished setting up the data model, manually inserted examples, rendered them in the UI and pushed and made it all work. Now, onto the next steps.
