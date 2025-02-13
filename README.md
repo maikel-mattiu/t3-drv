@@ -2,10 +2,11 @@
 
 ## TODO
 
-- [ ] Set up database and data model
-- [ ] Move folder open state to URL
+- [x] Set up database and data model
+- [x] Move folder open state to URL
 - [ ] Add authentication
 - [ ] Add file upload/download
+- [ ] Add analytics
 
 ## Note to self
 
@@ -17,3 +18,7 @@ Just finished setting up the database. Next Steps:
 - [x] Push and make it all work
 
 Finished setting up the data model, manually inserted examples, rendered them in the UI and pushed and made it all work. Now, onto the next steps.
+
+- [ ] Change folders to link components, remove all client state
+- [ ] Clean up the database and data fetching patterns
+- [ ] Real homepage
