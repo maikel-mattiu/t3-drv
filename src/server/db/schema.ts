@@ -13,7 +13,7 @@ export const createTable = singlestoreTableCreator(
   (name) => `t3-drv_${name}`,
 )
 
-export const files = createTable(
+export const files_table = createTable(
   "files_table",
   {
     id: bigint({ mode: "number", unsigned: true }).primaryKey().autoincrement(),
@@ -28,7 +28,7 @@ export const files = createTable(
 )
 
 // folders table
-export const folders = createTable(
+export const folders_table = createTable(
   "folders_table",
   {
     id: bigint({ mode: "number", unsigned: true }).primaryKey().autoincrement(),
