@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+// import { useMemo } from "react";
 import { Upload, ChevronRight } from "lucide-react";
 import { Button } from "~/components/ui/button";
 import { FileRow, FolderRow } from "./file-row";
@@ -10,37 +10,9 @@ import Link from "next/link";
 export default function DriveContents(props: {
   files: (typeof files.$inferSelect)[];
   folders: (typeof folders.$inferSelect)[];
+  parents: (typeof folders.$inferSelect)[];
 }) {
-  const [currentFolder, setCurrentFolder] = useState<number>(1);
-
-  // const getCurrentFiles = () => {
-  //   return mockFiles.filter((file) => file.parent === currentFolder);
-  // };
-
-  // const getCurrentFolders = () => {
-  //   return mockFolders.filter((folder) => folder.parent === currentFolder);
-  // };
-
-  // const handleFolderClick = (folderId: number) => {
-  //   setCurrentFolder(folderId);
-  // };
-
-  const breadCrumbs = useMemo(() => {
-    const breadcrumbs = [];
-    let currentId = currentFolder;
-
-    while (currentId !== 1) {
-      const folder = props.folders.find((file) => file.id === currentId);
-      if (folder) {
-        breadcrumbs.unshift(folder);
-        currentId = folder.parent ?? 1;
-      } else {
-        break;
-      }
-    }
-
-    return breadcrumbs;
-  }, [props.folders, currentFolder]);
+  // const breadCrumbs: unknown[] = [];
 
   const handleUpload = () => {
     alert("Upload functionality would be implemented here");
@@ -54,7 +26,7 @@ export default function DriveContents(props: {
             <Link href={`/route/1`} className="text-gray-300 hover:text-white">
               My Drive
             </Link>
-            {breadCrumbs.map((folder) => (
+            {props.parents.map((folder) => (
               <div key={folder.id} className="flex items-center">
                 <ChevronRight className="mx-2 text-gray-500" size={16} />
                 <Link
