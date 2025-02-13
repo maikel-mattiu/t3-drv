@@ -20,5 +20,5 @@ Just finished setting up the database. Next Steps:
 Finished setting up the data model, manually inserted examples, rendered them in the UI and pushed and made it all work. Now, onto the next steps.
 
 - [x] Change folders to link components, remove all client state
-- [ ] Clean up the database and data fetching patterns
+- [x] Clean up the database and data fetching patterns
 - [ ] Real homepage
