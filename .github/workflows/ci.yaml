@@ -11,19 +11,17 @@ jobs:
       SINGLESTORE_HOST: ${{ secrets.SINGLESTORE_HOST }}
       SINGLESTORE_PORT: ${{ secrets.SINGLESTORE_PORT }}
       SINGLESTORE_DB_NAME: ${{ secrets.SINGLESTORE_DB_NAME }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}  # Add this line
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Create .npmrc file to approve build scripts
-        run: |
-          echo "scripts-allowed='@clerk/shared, esbuild, sharp'" > .npmrc
 
       - name: Install Dependencies
         run: npm install -g pnpm && pnpm install
 
       - name: Build
         run: pnpm run build
+        shell: /usr/bin/bash -e {0}  # Ensure this line is correct
 
       - name: Copy .env.example files
         shell: bash
