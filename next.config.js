@@ -12,6 +12,13 @@ const config = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  env: {
+    SINGLESTORE_USER: process.env.SINGLESTORE_USER,
+    SINGLESTORE_PASS: process.env.SINGLESTORE_PASS,
+    SINGLESTORE_HOST: process.env.SINGLESTORE_HOST,
+    SINGLESTORE_PORT: process.env.SINGLESTORE_PORT,
+    SINGLESTORE_DB_NAME: process.env.SINGLESTORE_DB_NAME,
+  },
 };
 
 export default config;
