@@ -6,6 +6,8 @@ import { Button } from "~/components/ui/button";
 import { FileRow, FolderRow } from "./file-row";
 import type { files_table, folders_table } from "~/server/db/schema";
 import Link from "next/link";
+import { UploadButton } from "~/components/uploadthing";
+import { useRouter } from "next/navigation";
 
 export default function DriveContents(props: {
   files: (typeof files_table.$inferSelect)[];
@@ -13,10 +15,7 @@ export default function DriveContents(props: {
   parents: (typeof folders_table.$inferSelect)[];
 }) {
   // const breadCrumbs: unknown[] = [];
-
-  const handleUpload = () => {
-    alert("Upload functionality would be implemented here");
-  };
+  const router = useRouter();
 
   return (
     <div className="min-h-screen bg-gray-900 p-8 text-gray-100">
@@ -64,6 +63,12 @@ export default function DriveContents(props: {
             ))}
           </ul>
         </div>
+        <UploadButton
+          endpoint={"imageUploader"}
+          onClientUploadComplete={() => {
+            router.refresh();
+          }}
+        />
       </div>
     </div>
   );
