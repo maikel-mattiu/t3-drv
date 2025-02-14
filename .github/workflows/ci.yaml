@@ -15,6 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Create .npmrc file to approve build scripts
+        run: |
+          echo "scripts-allowed='@clerk/shared, esbuild, sharp'" > .npmrc
+
       - name: Install Dependencies
         run: npm install -g pnpm && pnpm install
 
