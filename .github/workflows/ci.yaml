@@ -19,6 +19,9 @@ jobs:
       - name: Install Dependencies
         run: npm install -g pnpm && pnpm install
 
+      - name: Approve Builds
+        run: pnpm approve-builds
+
       - name: Build
         run: pnpm run build
         shell: /usr/bin/bash -e {0}  # Ensure this line is correct
