@@ -43,9 +43,10 @@ export const MUTATIONS = {
       name: string
       size: number
       url: string
+      parent: number
     }
     userId: string
   }) {
-    return db.insert(filesSchema).values({ ...input.file, parent: 1 })
+    return db.insert(filesSchema).values({ ...input.file, parent: input.file.parent })
   },
 }
