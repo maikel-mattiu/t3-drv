@@ -24,7 +24,8 @@ Finished setting up the data model, manually inserted examples, rendered them in
 
 Finished cleaning up the database and data fetching patterns and also added file upload. Now, onto the next steps.
 
-- [ ] Real homepage
+- [ ] Add "ownership" to files and folders
 - [ ] Upload files to the right folder
 - [ ] Delete files button
 - [ ] Allow files that aren't images to be uploaded
+- [ ] Real homepage
