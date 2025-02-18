@@ -3,6 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import { PostHogProvider } from "./_providers/posthog-providers";
 
 export const metadata: Metadata = {
   title: "T3 Drive App",
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className={`${GeistSans.variable}`}>
-        <body>{children}</body>
+        <body>
+          <PostHogProvider>{children}</PostHogProvider>
+        </body>
       </html>
     </ClerkProvider>
   );

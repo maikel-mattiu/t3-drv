@@ -7,6 +7,8 @@
 - [x] Add authentication
 - [x] Add file upload/download
 - [ ] Add analytics
+- [ ] Add delete function
+- [ ] Real homepage + onboarding
 
 ## Note to self
 

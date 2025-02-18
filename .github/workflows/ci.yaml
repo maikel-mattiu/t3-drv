@@ -15,6 +15,8 @@ jobs:
       NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: "pk_test_b3Blbi1qb2V5LTg5LmNsZXJrLmFjY291bnRzLmRldiQ"
       CLERK_SECRET_KEY: "sk_test_sxLCMiGuWcM7rMqAVskTheEFKGoyxGdWNOdBSRg64I"
       UPLOADTHING_TOKEN: 'eyJhcGlLZXkiOiJza19saXZlXzM2YWE4NjNhYzM5MWI0ZDJmNjQzODlkODQ3MDRjMDg3Y2VjZTE2MWI4ZjE1YzljMzNmZmQ1NDBiNzkwNzkwNjUiLCJhcHBJZCI6IjFhaWZ5cDJuZjkiLCJyZWdpb25zIjpbInNlYTEiXX0='
+      NEXT_PUBLIC_POSTHOG_KEY: 'phc_1m4GNhNbblk5zNCdv12eRHkU3cn6jobyDkTPlTeGjnA'
+      NEXT_PUBLIC_POSTHOG_HOST: 'https://us.i.posthog.com'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
