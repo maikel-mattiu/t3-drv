@@ -44,16 +44,17 @@ export const QUERIES = {
     const folder = await db
       .select()
       .from(foldersSchema)
-      .where(eq(foldersSchema.id, folderId))
+      .where(eq(foldersSchema.id, folderId));
     return folder[0];
   },
   getRootFolderForUser: async function (userId: string) {
     const rootFolder = await db
       .select()
       .from(foldersSchema)
-      .where(and(eq(foldersSchema.ownerId, userId),
-        isNull(foldersSchema.parent)))
-    return rootFolder[0]
+      .where(
+        and(eq(foldersSchema.ownerId, userId), isNull(foldersSchema.parent)),
+      )
+    return rootFolder[0];
   },
 };
 
@@ -63,7 +64,7 @@ export const MUTATIONS = {
       name: string
       size: number
       url: string
-      parent: number
+      parent: number;
     };
     userId: string;
   }) {
@@ -71,4 +72,21 @@ export const MUTATIONS = {
       .insert(filesSchema)
       .values({ ...input.file, ownerId: input.userId });
   },
+  onboardUser: async function (userId: string) {
+    const rootFolder = await db
+      .insert(foldersSchema)
+      .values({ name: "Root", ownerId: userId, parent: null })
+      .$returningId()
+
+    const rootFolderId = rootFolder[0]!.id
+
+    await db.insert(foldersSchema).values([
+      { name: "Shared", ownerId: userId, parent: rootFolderId },
+      { name: "Trash", ownerId: userId, parent: rootFolderId },
+      { name: "Documents", ownerId: userId, parent: rootFolderId },
+      { name: "Pictures", ownerId: userId, parent: rootFolderId },
+    ])
+
+    return rootFolderId
+  }
 }

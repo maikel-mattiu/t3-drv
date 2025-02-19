@@ -1,8 +1,7 @@
-import Link from "next/link";
-import { SignInButton } from "@clerk/nextjs"
 import { Database } from "lucide-react"
+import Link from "next/link";
 
-export default function LandingPage() {
+export default function LandingPage(props: {children: React.ReactNode}) {
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-gray-900 to-gray-600">
       <header className="p-4 md:p-6">
@@ -15,9 +14,7 @@ export default function LandingPage() {
       </header>
 
       <main className="flex flex-grow items-center justify-center p-4 md:p-6">
-        <div className="mx-auto max-w-2xl space-y-6 text-center">
-         <SignInButton forceRedirectUrl={"/drive"} />
-        </div>
+        {props.children}
       </main>
 
       <footer className="p-4 md:p-6">
