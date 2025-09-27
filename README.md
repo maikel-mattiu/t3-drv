@@ -7,9 +7,9 @@
 - [x] Add authentication
 - [x] Add file upload/download
 - [x] Add analytics
-- [ ] Make sure sort order is consistent
-- [ ] Add delete function
-- [ ] Real homepage + onboarding
+- [x] Make sure sort order is consistent
+- [x] Add delete function
+- [x] Real homepage + onboarding
 
 ## Note to self
 
@@ -29,6 +29,14 @@ Finished cleaning up the database and data fetching patterns and also added file
 
 - [x] Add "ownership" to files and folders
 - [x] Upload files to the right folder
-- [ ] Delete files button
+- [x] Delete files button
 - [x] Allow files that aren't images to be uploaded
-- [ ] Real homepage
+- [x] Real homepage
+
+### Homeworks
+
+- [ ] Create a "create folder" button that works
+- [ ] Access control for files and folders
+- [ ] Make a file view page that shows the file in an iframe
+- [ ] Toasts for file uploads and deletions
+- [ ] Grey our a row while it's being uploaded or deleted
